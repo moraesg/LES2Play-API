@@ -6,8 +6,8 @@ var express = require('express');
     Game = require('./api/models/GameModel');
     bodyParser = require('body-parser');
 
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/LES2Play-DB');
+//mongoose.Promise = global.Promise;
+//mongoose.connect('mongodb://localhost/LES2Play-DB');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
