@@ -1,0 +1,31 @@
+{
+  "name": "les2play-api",
+  "version": "1.0.0",
+  "description": "RESTful API for LES2Play",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moraesg/LES2Play-API.git"
+  },
+  "keywords": [
+    "RESTful",
+    "API"
+  ],
+  "author": "moraesg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moraesg/LES2Play-API/issues"
+  },
+  "homepage": "https://github.com/moraesg/LES2Play-API#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.0.15"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
