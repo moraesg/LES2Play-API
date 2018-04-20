@@ -1,28 +1,30 @@
 var express = require('express');
-
     app = express();
-    port = process.env.PORT || 3000;
     mongoose = require('mongoose');
     Game = require('./api/models/GameModel');
     bodyParser = require('body-parser');
 
-//mongoose.Promise = global.Promise;
-//mongoose.connect('mongodb://localhost/LES2Play-DB');
+    // Constants
+    const PORT = 8080;
+   // const HOST = '172.20.10.4';
+
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/LES2Play-DB');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+    //Setting up routes
     gameRoutes = require('./api/routes/GameRoutes');
-gameRoutes(app);
+    gameRoutes(app);
 
 //404 - url_not_found. //TODO: implementar arquivo para status separados.
 app.use(function(req, res){
     res.status(404).send({ url: req.originalUrl + ' not found.'});
 });
 
-app.listen(port);
-
-
-
-
-console.log('LES2Play API server is running at port: ' + port);
+app.listen(PORT);
+console.log(PORT);
+//app.listen(PORT, HOST);
+//console.log(`Running on http://${HOST}:${PORT}`);
