@@ -7,9 +7,9 @@ var mongoose = require('mongoose');
     exports.list_all_users = function(req, res) {
         User.find({}, function(err, user) {
         if (err){
-            res.send(err);
+            res.status(500).send(err);
         } else {
-            res.json(user);
+            res.status(200).json(user);
         }
         });
     };
@@ -19,9 +19,9 @@ var mongoose = require('mongoose');
         var new_user = new User(req.body);
         new_user.save(function(err, user){
             if (err){
-                res.send(err);
+                res.status(500).send(err);
             } else {
-                res.json(user);
+                res.status(201).send(user);      
             }
         });
     };
@@ -30,9 +30,9 @@ var mongoose = require('mongoose');
     exports.read_a_user = function(req, res) {
         User.findById(req.params.userId, function(err, user) {
             if (err){
-                res.send(err);
+                res.status(500).send(err);
             } else {
-                res.json(user);
+                res.status(200).json(user);
             }
         });
     };
@@ -42,9 +42,9 @@ var mongoose = require('mongoose');
         User.findOneAndUpdate(
             {_id: req.params.userId}, req.body, {new: true}, function(err, user){
                 if (err){
-                    res.send(err);
+                    res.status(500).send(err);
                 } else {
-                    res.json(user);
+                    res.status(200).json(user);
                 }
         })
     }
@@ -53,9 +53,9 @@ var mongoose = require('mongoose');
     exports.delete_a_user = function(req, res) {
         User.remove({_id: req.params.userId}, function(err, user){
             if (err){
-                res.send(err);
+                res.status(500).send(err);
             } else {
-                send.json({message: "User successfully deleted"});
+                res.status(200).json({message: "User deleted."});
             }
         });
     };

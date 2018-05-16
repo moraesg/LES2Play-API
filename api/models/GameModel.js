@@ -19,8 +19,7 @@ var GameSchema = new Schema({
         type: Number
     },
     releasedate: {
-        type: Date,
-        default: Date.now
+        type: Date
     },
     developer: {
         type: String

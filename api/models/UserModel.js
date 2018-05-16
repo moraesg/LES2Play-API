@@ -3,10 +3,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-//creating game's base struct
+//creating user's base struct
 var UserSchema = new Schema({
-    name: {
+    email: {
         type: String,
+        required: 'Enter the user\'s email'
     },
     username: {
         type: String
@@ -15,7 +16,7 @@ var UserSchema = new Schema({
         type: String
     },
     type: {
-        type: String
+        type: Number
     }
 });
 
