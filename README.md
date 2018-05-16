@@ -1,7 +1,7 @@
 # LES2Play-API
 
 ## Run MongoDB
-To setup mongodb, check out [![mongoDB Docker instructions](https://github.com/moraesg/LES2Play-API/tree/master/Banco)]
+To setup mongodb, check out [mongoDB Docker instructions](https://github.com/moraesg/LES2Play-API/tree/master/Banco)
 
 ## Launching the application
 
