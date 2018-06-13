@@ -7,11 +7,11 @@ var express = require('express');
 
     // Constants
     const PORT = 8080;
-   // const HOST = '172.20.10.4';
+    const HOST = '192.168.43.94';
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017/LES2Play')
+mongoose.connect('mongodb://localhost/LES2Play')
     .then(() => { // if all is ok we will be here
         console.log('server just connected.');
     })
@@ -34,7 +34,7 @@ app.use(function(req, res){
     res.status(404).send({ url: req.originalUrl + ' not found.'});
 });
 
-app.listen(PORT);
-console.log(PORT);
-//app.listen(PORT, HOST);
+// app.listen(PORT);
+console.log(HOST + ':' + PORT);
+app.listen(PORT, HOST);
 //console.log(`Running on http://${HOST}:${PORT}`);

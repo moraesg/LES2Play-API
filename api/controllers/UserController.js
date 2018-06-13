@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
     
     //GET at /users
     exports.list_all_users = function(req, res) {
+        console.log('alan')
         User.find({}, function(err, user) {
         if (err){
             res.status(500).send(err);
@@ -21,7 +22,10 @@ var mongoose = require('mongoose');
             if (err){
                 res.status(500).send(err);
             } else {
-                res.status(201).send(user);      
+                res.status(201).json({"id": new_user._id,
+                                      "email": new_user.email,
+                                      "username": new_user.username,
+                                      "type": new_user.type});      
             }
         });
     };
@@ -59,3 +63,19 @@ var mongoose = require('mongoose');
             }
         });
     };
+
+    //Login
+    exports.login = function(req, res) {
+        User.findOne({username: req.body.username}, function(err, user){
+            if(err){
+                res.status(500).send(err);
+            } else {
+                if(req.body.password == user.password)
+                {
+                    res.status(200).json(user);
+                } else {
+                    res.status(401).json({error: "username or password incorrect."})    
+                }
+            }
+        })
+    }
