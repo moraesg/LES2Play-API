@@ -61,3 +61,14 @@ var mongoose = require('mongoose');
             }
         });
     };
+
+    //GET at /games/genres
+    exports.list_all_genres = function(req, res) {
+        Game.distinct("genre", function(err, game) {
+            if (err){
+                res.status(500).send(err);
+            } else {
+                res.status(200).json(game);
+            }
+        });
+    };

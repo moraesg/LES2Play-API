@@ -7,7 +7,7 @@ var express = require('express');
 
     // Constants
     const PORT = 8080;
-    const HOST = '192.168.43.94';
+    const HOST = '0.0.0.0';
 
 
 mongoose.Promise = global.Promise;
