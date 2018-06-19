@@ -15,6 +15,6 @@ module.exports = function(app) {
     .delete(Game.delete_a_game);
 
     //game routes "for bunch of data"
-    app.route('/game/genres')
+    app.route('/genres')
     .get(Game.list_all_genres);
 };

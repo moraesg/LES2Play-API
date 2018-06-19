@@ -70,12 +70,18 @@ var mongoose = require('mongoose');
             if(err){
                 res.status(500).send(err);
             } else {
-                if(req.body.password == user.password)
+                if(user != null)
                 {
-                    res.status(200).json(user);
+                    if(req.body.password == user.password)
+                    {
+                        res.status(200).json(user);
+                    } else {
+                        res.status(401).json({error: "username or password incorrect."})    
+                    }
                 } else {
-                    res.status(401).json({error: "username or password incorrect."})    
+                    res.status(401).json({error: "username or password incorrect."})  
                 }
+                
             }
         })
     }

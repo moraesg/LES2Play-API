@@ -45,8 +45,6 @@ var mongoose = require('mongoose');
                 } else {
                     
                     res.status(200).json(game);
-
-
                 }
         })
     }
@@ -62,7 +60,7 @@ var mongoose = require('mongoose');
         });
     };
 
-    //GET at /games/genres
+    //GET at /genres
     exports.list_all_genres = function(req, res) {
         Game.distinct("genre", function(err, game) {
             if (err){
