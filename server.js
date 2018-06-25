@@ -4,7 +4,8 @@ var express = require('express');
     Game = require('./api/models/GameModel');
     User = require('./api/models/UserModel');
     bodyParser = require('body-parser');
-
+    cors = require('cors');
+    app.use(cors());
     // Constants
     const PORT = 8080;
     const HOST = '0.0.0.0';
