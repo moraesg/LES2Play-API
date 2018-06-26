@@ -8,7 +8,7 @@ var express = require('express');
     app.use(cors());
     // Constants
     const PORT = 8080;
-    const HOST = '0.0.0.0';
+    const HOST = 'localhost';
 
 
 mongoose.Promise = global.Promise;
